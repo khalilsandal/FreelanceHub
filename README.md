@@ -1,18 +1,19 @@
-# React + Vite
+# FreelanceHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FreelanceHub is a **React 18 freelance marketplace application inspired by platforms like Upwork**.
 
-Currently, two official plugins are available:
+The project allows clients to post jobs and manage proposals, while freelancers can browse jobs, submit proposals, and manage their profiles.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+It is built as a learning project to practice **React 18, React Router, Hooks, API calls, forms, state management, and testing**, with local JSON data acting as a temporary backend.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* React 18
+* React Router v6
+* JavaScript ES6+
+* Axios
+* React Hook Form
+* Zod
+* JSON (mock backend)
 
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> 🚧 This project is currently under development.

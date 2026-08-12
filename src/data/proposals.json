@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "jobId": 1,
+    "freelancerId": 1,
+    "bid": 2200,
+    "coverLetter": "I would love to work on this project.",
+    "status": "pending",
+    "createdAt": "2026-08-05"
+  }
+]

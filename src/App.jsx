@@ -1,122 +1,101 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+
+// Layout
+import AppLayout from "./components/layout/AppLayout.jsx";
+
+// Public pages
+import Home from "./pages/Home/Home.jsx";
+import Login from "./pages/Login/Login.jsx";
+import Register from "./pages/Register/Register.jsx";
+
+// Protected pages
+import Dashboard from "./pages/Dashboard/Dashboard.jsx";
+
+import Jobs from "./pages/Jobs/Jobs.jsx";
+import JobDetails from "./pages/Jobs/JobDetails.jsx";
+
+import Freelancers from "./pages/Freelancers/Freelancers.jsx";
+import FreelancerProfile from "./pages/Freelancers/FreelancerProfile.jsx";
+
+import MyJobs from "./pages/MyJobs/MyJobs.jsx";
+import CreateJob from "./pages/MyJobs/CreateJob.jsx";
+import MyJobDetails from "./pages/MyJobs/MyJobDetails.jsx";
+
+import MyProposals from "./pages/MyProposals/MyProposals.jsx";
+import ProposalDetails from "./pages/MyProposals/ProposalDetails.jsx";
+
+import Profile from "./pages/Profile/Profile.jsx";
+
+// Route protection
+import ProtectedRoute from "./routes/ProtectedRoute.jsx";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <Routes>
 
-      <div className="ticks"></div>
+      {/* =========================
+          PUBLIC ROUTES
+      ========================== */}
+      <Route path="/" element={<AppLayout />}>
+        <Route index element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+      </Route>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {/* =========================
+          PROTECTED APPLICATION
+      ========================== */}
+      <Route element={<ProtectedRoute />}>
+        <Route path="/app" element={<AppLayout />}>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          {/* Dashboard */}
+          <Route path="dashboard" element={<Dashboard />} />
+
+
+          {/* Jobs */}
+          <Route path="jobs">
+            <Route index element={<Jobs />} />
+            <Route path=":jobId" element={<JobDetails />} />
+          </Route>
+
+
+          {/* Freelancers */}
+          <Route path="freelancers">
+            <Route index element={<Freelancers />} />
+            <Route
+              path=":freelancerId"
+              element={<FreelancerProfile />}
+            />
+          </Route>
+
+
+          {/* My Jobs */}
+          <Route path="my-jobs">
+            <Route index element={<MyJobs />} />
+            <Route path="new" element={<CreateJob />} />
+            <Route path=":jobId" element={<MyJobDetails />} />
+          </Route>
+
+
+          {/* My Proposals */}
+          <Route path="my-proposals">
+            <Route index element={<MyProposals />} />
+            <Route
+              path=":proposalId"
+              element={<ProposalDetails />}
+            />
+          </Route>
+
+
+          {/* Profile */}
+          <Route path="profile" element={<Profile />} />
+
+        </Route>
+      </Route>
+
+    </Routes>
+  );
 }
 
-export default App
+export default App;

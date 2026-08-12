@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "userId": 2,
+    "name": "Sarah Johnson",
+    "title": "Senior React Developer",
+    "hourlyRate": 55,
+    "rating": 4.9,
+    "reviews": 127,
+    "location": "Portugal",
+    "skills": [
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "Node.js"
+    ],
+    "bio": "Senior frontend developer with 7 years of experience."
+  }
+]

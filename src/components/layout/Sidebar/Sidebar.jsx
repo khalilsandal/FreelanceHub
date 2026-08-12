@@ -33,13 +33,13 @@ const Sidebar = ({isOpen, setIsOpen}) => {
             </li>
 
             <li>
-              <NavLink to="/About" className="block rounded p-2 hover:bg-blue-500" onClick={() => setIsOpen(false)}>
+              <NavLink to="/about" className="block rounded p-2 hover:bg-blue-500" onClick={() => setIsOpen(false)}>
                 About
               </NavLink>
             </li>
 
             <li>
-              <NavLink to="/Blog" className="block rounded p-2 hover:bg-blue-500" onClick={() => setIsOpen(false)}>
+              <NavLink to="/blog" className="block rounded p-2 hover:bg-blue-500" onClick={() => setIsOpen(false)}>
                 Blog
               </NavLink>
             </li>

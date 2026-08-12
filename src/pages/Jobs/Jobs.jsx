@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getJobs } from "../../services/jobService";
 import Loading from "../../components/common/loading";
+import ErrorState from "../../components/common/ErrorMessage/ErrorState";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -31,7 +32,7 @@ const Jobs = () => {
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <ErrorState title="Something went wrong" message="We could not get Jobs" onRetry = {true} />;
   }
 
   return (

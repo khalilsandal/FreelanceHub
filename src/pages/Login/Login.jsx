@@ -1,16 +1,31 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../features/auth/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogin = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    // Temporary login for development
-    localStorage.setItem("token", "demo-token");
+  const formData = new FormData(e.target);
 
-    navigate("/app/dashboard");
-  };
+  const email = formData.get("email");
+  const password = formData.get("password");
+
+  dispatch(
+    loginUser({
+      id: 1,
+      name: "John Smith",
+      email: email,
+      role: "Freelancer",
+      photoURL: "https://i.pravatar.cc/150?img=12",
+    })
+  );
+
+  navigate("/app/jobs");
+};
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -54,22 +69,11 @@ const Login = () => {
               </button>
 
 
-              {/* Facebook */}
-              <button
-                type="button"
-                className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 transition hover:bg-gray-50"
-              >
-                <span className="text-lg font-bold text-blue-600">
-                  f
-                </span>
-                Continue with Facebook
-              </button>
-
-
               {/* LinkedIn */}
               <button
                 type="button"
-                className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 transition hover:bg-gray-50"
+                disabled
+                className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-200 bg-gray-100 px-4 py-3 font-medium text-gray-400 cursor-not-allowed"
               >
                 <span className="text-lg font-bold text-blue-700">
                   in

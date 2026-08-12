@@ -26,6 +26,14 @@ import ProposalDetails from "./pages/MyProposals/ProposalDetails.jsx";
 
 import Profile from "./pages/Profile/Profile.jsx";
 
+
+import Settings from "./pages/Settings/Settings.jsx";
+import SubmitProposal from "./pages/SubmitProposal/SubmitProposal.jsx";
+import About from "./pages/About/About.jsx";
+
+
+
+
 // Route protection
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 
@@ -41,6 +49,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="about" element={<About />} />
       </Route>
 
       {/* =========================
@@ -57,6 +66,7 @@ function App() {
           <Route path="jobs">
             <Route index element={<Jobs />} />
             <Route path=":jobId" element={<JobDetails />} />
+            <Route path=":jobId/proposal" element={<SubmitProposal />} />
           </Route>
 
 
@@ -90,6 +100,9 @@ function App() {
 
           {/* Profile */}
           <Route path="profile" element={<Profile />} />
+
+          {/* Settings */}
+          <Route path="settings" element={<Settings />} />
 
         </Route>
       </Route>

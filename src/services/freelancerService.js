@@ -1,11 +1,17 @@
-import freenlancers from "../data/freenlancers.json";
+import freelancers from "../data/freelancers.json";
 
 export const getFreelancers = async () => {
-    return freenlancers;
+      await new Promise((resolve) =>
+        setTimeout(resolve, 400)
+    );
+    return freelancers;
 };
 
 export const getById = async (id) => {
-    return freenlancers.find(
+      await new Promise((resolve) =>
+        setTimeout(resolve, 400)
+    );
+    return freelancers.find(
         freelancer => freelancer.id == Number(id)
     );
 };

@@ -216,11 +216,12 @@ const JobDetails = () => {
                 person for this project.
               </p>
 
-              <button
-                className="mt-6 w-full rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white transition hover:bg-blue-700"
-              >
-                Submit a Proposal
-              </button>
+              
+              <NavLink to={`/app/jobs/${job.id}/proposal`}
+                className="mt-6 block w-full rounded-lg bg-blue-600 px-5 py-3 text-center font-semibold text-white hover:bg-blue-700"
+>
+  Submit a Proposal
+</NavLink>
 
               <button
                 className="mt-3 w-full rounded-lg border border-gray-300 px-5 py-3 font-semibold text-gray-700 transition hover:bg-gray-50"

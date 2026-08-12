@@ -2,7 +2,7 @@ import jobs from "../data/jobs.json";
 
 export const getJobs = async () => {
   await new Promise((resolve) =>
-    setTimeout(resolve, 1000)
+    setTimeout(resolve, 400)
   );
 
   return jobs;
@@ -10,7 +10,7 @@ export const getJobs = async () => {
 
 export const getJobById = async (id) => {
     await new Promise((resolve) =>
-        setTimeout(resolve, 1000)
+        setTimeout(resolve, 400)
     );
 
   return jobs.find(

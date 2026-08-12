@@ -56,23 +56,11 @@ const Register = () => {
                 Continue with Google
               </button>
 
-
-              {/* Facebook */}
-              <button
-                type="button"
-                className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 transition hover:bg-gray-50"
-              >
-                <span className="text-lg font-bold text-blue-600">
-                  f
-                </span>
-                Continue with Facebook
-              </button>
-
-
               {/* LinkedIn */}
               <button
                 type="button"
-                className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-700 transition hover:bg-gray-50"
+                disabled
+                className="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-200 bg-gray-100 px-4 py-3 font-medium text-gray-400 cursor-not-allowed"
               >
                 <span className="text-lg font-bold text-blue-700">
                   in

@@ -6,6 +6,8 @@ import Logofh from "../../../assets/logofh.png";
 
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../../features/auth/authSlice";
+import FindWorkDropdown from "./FindWorkDropdown.jsx";
+
 
 const Navbar = ({ setIsOpen }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -62,6 +64,8 @@ const Navbar = ({ setIsOpen }) => {
 
           </div>
 
+          
+
 
           {!isAuthenticated ? (
   <div className="ml-auto flex items-center gap-3">
@@ -83,6 +87,21 @@ const Navbar = ({ setIsOpen }) => {
   </div>
 ) : (
   <div className="ml-auto flex items-center gap-3">
+
+
+
+
+   {/* Messages */}
+      <NavLink
+       to="/app/jobs/messages"
+        className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 hover:text-blue-600"
+      >
+        Messages      
+      </NavLink>
+
+
+
+    <FindWorkDropdown />
   <button
     onClick={() => setIsProfileOpen(true)}
     className="flex items-center gap-3 rounded-lg p-1.5 hover:bg-gray-100"
@@ -190,7 +209,7 @@ const Navbar = ({ setIsOpen }) => {
         <div className="p-4">
 
           <NavLink
-            to="/app/profile"
+            to={`/app/profile/${user?.id}`}
             onClick={() => setIsProfileOpen(false)}
             className="flex items-center gap-4 rounded-lg px-4 py-3 text-gray-700 transition hover:bg-gray-100"
           >

@@ -1,29 +1,66 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
+import { getUserById } from "../../services/userService";
+import Loading from "../../components/common/loading";
+import ErrorState from "../../components/common/ErrorMessage/ErrorState";
 
 const Profile = () => {
-  // Temporary user data
-  // Later this will come from Firebase
-  const user = {
-    name: "John Smith",
-    email: "john@example.com",
-    role: "Freelancer",
-    location: "Lisbon, Portugal",
-    photoURL: "https://i.pravatar.cc/150?img=12",
-    bio: "Full Stack Developer passionate about building modern web applications and solving complex problems.",
-    skills: [
-      "React",
-      "JavaScript",
-      "Node.js",
-      "Tailwind CSS",
-      "Firebase",
-    ],
-    hourlyRate: "$45/hr",
-    jobsCompleted: 24,
-    rating: 4.9,
-    memberSince: "January 2026",
-  };
+  const { userId } = useParams();
 
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        setLoading(true);
+        const data = await getUserById(userId);
+        setUser(data);
+
+      } catch (err) {
+        setError("Failed to load job details.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProfile();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <ErrorState title="Something went wrong" message="We could not get Job details" onRetry = {true} />;
+  }
+  // User not found
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gray-50 px-6 py-10">
+        <div className="mx-auto max-w-5xl">
+          <div className="rounded-xl bg-white p-10 text-center shadow-sm ring-1 ring-gray-200">
+            <h1 className="text-2xl font-bold text-gray-900">
+              User not found
+            </h1>
+
+            <p className="mt-2 text-gray-600">
+              The User you're looking for doesn't exist.
+            </p>
+
+            {/* <NavLink
+              to="/app/jobs"
+              className="mt-6 inline-block rounded-lg bg-blue-600 px-5 py-2.5 font-semibold text-white hover:bg-blue-700"
+            >
+              ← Back to Home
+            </NavLink> */}
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-gray-50 px-6 py-8">
 
@@ -56,23 +93,23 @@ const Profile = () => {
               <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end">
 
                 <img
-                  src={user.photoURL}
-                  alt={user.name}
+                  src={user?.photoURL}
+                  alt={user?.name}
                   className="h-32 w-32 rounded-full border-4 border-white object-cover shadow-md"
                 />
 
                 <div className="pb-1">
 
                   <h2 className="text-2xl font-bold text-gray-900">
-                    {user.name}
+                    {user?.name}
                   </h2>
 
                   <p className="text-gray-500">
-                    {user.role}
+                    {user?.role}
                   </p>
 
                   <p className="mt-1 text-sm text-gray-400">
-                    📍 {user.location}
+                    📍 {user?.location}
                   </p>
 
                 </div>
@@ -105,7 +142,7 @@ const Profile = () => {
             <div className="mt-2 flex items-center gap-2">
 
               <span className="text-2xl font-bold text-gray-900">
-                {user.rating}
+                {user?.rating}
               </span>
 
               <span className="text-yellow-400">
@@ -124,7 +161,7 @@ const Profile = () => {
             </p>
 
             <p className="mt-2 text-2xl font-bold text-gray-900">
-              {user.jobsCompleted}
+              {user?.jobsCompleted}
             </p>
 
           </div>
@@ -137,7 +174,7 @@ const Profile = () => {
             </p>
 
             <p className="mt-2 text-2xl font-bold text-gray-900">
-              {user.hourlyRate}
+              {user?.hourlyRate}
             </p>
 
           </div>
@@ -155,7 +192,7 @@ const Profile = () => {
             </h2>
 
             <p className="mt-4 leading-7 text-gray-600">
-              {user.bio}
+              {user?.bio}
             </p>
 
           </div>
@@ -175,7 +212,7 @@ const Profile = () => {
                 </p>
 
                 <p className="mt-1 break-all text-sm text-gray-700">
-                  {user.email}
+                  {user?.email}
                 </p>
               </div>
 
@@ -185,7 +222,7 @@ const Profile = () => {
                 </p>
 
                 <p className="mt-1 text-sm text-gray-700">
-                  {user.location}
+                  {user?.location}
                 </p>
               </div>
 
@@ -195,7 +232,7 @@ const Profile = () => {
                 </p>
 
                 <p className="mt-1 text-sm text-gray-700">
-                  {user.memberSince}
+                  {user?.memberSince}
                 </p>
               </div>
 
@@ -214,7 +251,7 @@ const Profile = () => {
 
           <div className="mt-4 flex flex-wrap gap-2">
 
-            {user.skills.map((skill) => (
+            {user?.skills?.map((skill) => (
               <span
                 key={skill}
                 className="rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600"

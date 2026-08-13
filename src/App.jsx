@@ -30,8 +30,11 @@ import Profile from "./pages/Profile/Profile.jsx";
 import Settings from "./pages/Settings/Settings.jsx";
 import SubmitProposal from "./pages/SubmitProposal/SubmitProposal.jsx";
 import About from "./pages/About/About.jsx";
+import Blog from "./pages/Blog/Blog.jsx";
+import BlogDetails from "./pages/Blog/BlogDetails.jsx";
 
-
+import SavedJobs from "./pages/SavedJobs/SavedJobs.jsx";
+import Messages from "./pages/Messages/Messages.jsx";
 
 
 // Route protection
@@ -50,6 +53,10 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="about" element={<About />} />
+        <Route path="blog">
+          <Route index element={<Blog />} />
+          <Route path=":postId" element={<BlogDetails />} />
+        </Route>
       </Route>
 
       {/* =========================
@@ -67,6 +74,8 @@ function App() {
             <Route index element={<Jobs />} />
             <Route path=":jobId" element={<JobDetails />} />
             <Route path=":jobId/proposal" element={<SubmitProposal />} />
+            <Route path="saved-jobs" element={<SavedJobs />} />
+            <Route path="messages" element={<Messages />} />
           </Route>
 
 
@@ -85,6 +94,8 @@ function App() {
             <Route index element={<MyJobs />} />
             <Route path="new" element={<CreateJob />} />
             <Route path=":jobId" element={<MyJobDetails />} />
+            
+            
           </Route>
 
 
@@ -99,7 +110,7 @@ function App() {
 
 
           {/* Profile */}
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile/:userId" element={<Profile />} />
 
           {/* Settings */}
           <Route path="settings" element={<Settings />} />

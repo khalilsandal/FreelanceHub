@@ -16,4 +16,7 @@ It is built as a learning project to practice **React 18, React Router, Hooks, A
 * Zod
 * JSON (mock backend)
 
+Visit here: **https://khalilsandal.github.io/FreelanceHub/**
+
+
 > 🚧 This project is currently under development.

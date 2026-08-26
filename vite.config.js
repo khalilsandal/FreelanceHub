@@ -5,10 +5,11 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/FreelanceHub",
   plugins: [
     react(),
     tailwindcss(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  base: '/',
-})
+  
+});

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 import { submitProposal } from "../../services/proposalService";
-import Loading from "../../components/common/loading";
+import Loading from "../../components/common/Loading.jsx";
 import ErrorState from "../../components/common/ErrorMessage/ErrorState";
 
 const SubmitProposal = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getFreelancers } from "../../services/freelancerService";
-import Loading from "../../components/common/loading";
+import Loading from "../../components/common/Loading.jsx";
 import FreelancerCard from "../../components/freelancers/FreelancerCard/FreelancerCard";
 
 

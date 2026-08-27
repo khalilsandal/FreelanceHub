@@ -5,7 +5,7 @@ import {
   getFreelancerProposals,
 } from "../../services/proposalService";
 
-import Loading from "../../components/common/loading";
+import Loading from "../../components/common/Loading.jsx";
 import ErrorState from "../../components/common/ErrorMessage/ErrorState";
 
 const MyProposals = () => {

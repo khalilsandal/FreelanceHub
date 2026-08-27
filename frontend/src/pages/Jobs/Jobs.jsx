@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getJobs } from "../../services/jobService";
-import Loading from "../../components/common/loading";
+import Loading from "../../components/common/Loading.jsx";
 import ErrorState from "../../components/common/ErrorMessage/ErrorState";
 
 const Jobs = () => {

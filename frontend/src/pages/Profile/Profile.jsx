@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { getUserById } from "../../services/userService";
-import Loading from "../../components/common/loading";
+import Loading from "../../components/common/Loading.jsx";
 import ErrorState from "../../components/common/ErrorMessage/ErrorState";
 
 const Profile = () => {

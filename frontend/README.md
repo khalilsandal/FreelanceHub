@@ -18,5 +18,23 @@ It is built as a learning project to practice **React 18, React Router, Hooks, A
 
 Visit here: **https://khalilsandal.github.io/FreelanceHub/**
 
+## 🧪 Demo Accounts
+
+Use the following credentials to test the different user roles:
+
+### 👤 Client Account
+
+| Field        | Credentials        |
+| ------------ | ------------------ |
+| **Email**    | `john@example.com` |
+| **Password** | `123123`           |
+
+### 💼 Freelancer Account
+
+| Field        | Credentials         |
+| ------------ | ------------------- |
+| **Email**    | `sarah@example.com` |
+| **Password** | `123123`            |
+
 
 > 🚧 This project is currently under development.

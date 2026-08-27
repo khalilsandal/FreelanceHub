@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { getFreelancers } from "../../services/freelancerService";
 import Loading from "../../components/common/Loading.jsx";
 import FreelancerCard from "../../components/freelancers/FreelancerCard/FreelancerCard";
-
+import ErrorState from "../../components/common/ErrorMessage/ErrorState";
 
 const Freelancers = () => {
   const [freelancers, setFreelancers] = useState([]);

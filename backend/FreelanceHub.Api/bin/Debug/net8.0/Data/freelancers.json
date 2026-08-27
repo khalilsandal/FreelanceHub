@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "title": "Senior Full Stack Developer",
+    "location": "Lisbon, Portugal",
+    "rating": 4.9,
+    "reviews": 124,
+    "hourlyRate": "$45/hr",
+    "skills": [
+      "React",
+      "Node.js",
+      "TypeScript",
+      "PostgreSQL"
+    ],
+    "description": "Full stack developer with 7+ years of experience building scalable web applications and SaaS platforms.",
+    "jobsCompleted": 86,
+    "availability": "Available now"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "title": "UI/UX Designer",
+    "location": "Toronto, Canada",
+    "rating": 4.8,
+    "reviews": 98,
+    "hourlyRate": "$35/hr",
+    "skills": [
+      "Figma",
+      "UI/UX",
+      "Prototyping",
+      "Design Systems"
+    ],
+    "description": "Creative UI/UX designer focused on creating simple, intuitive and beautiful digital experiences.",
+    "jobsCompleted": 71,
+    "availability": "Available now"
+  },
+  {
+    "id": 3,
+    "name": "David Williams",
+    "title": "Backend Developer",
+    "location": "London, UK",
+    "rating": 5.0,
+    "reviews": 76,
+    "hourlyRate": "$50/hr",
+    "skills": [
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "AWS"
+    ],
+    "description": "Backend engineer specializing in APIs, cloud infrastructure and high-performance applications.",
+    "jobsCompleted": 64,
+    "availability": "Available now"
+  },
+  {
+    "id": 4,
+    "name": "Emma Rodriguez",
+    "title": "Digital Marketing Specialist",
+    "location": "Madrid, Spain",
+    "rating": 4.7,
+    "reviews": 63,
+    "hourlyRate": "$30/hr",
+    "skills": [
+      "SEO",
+      "Google Ads",
+      "Content Marketing",
+      "Analytics"
+    ],
+    "description": "Digital marketing specialist helping businesses increase traffic, conversions and online visibility.",
+    "jobsCompleted": 52,
+    "availability": "Available this week"
+  }
+]

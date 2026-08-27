@@ -7,6 +7,15 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   server: {
     host: '0.0.0.0',
+    watch: {
+      usePolling: true,
+    },
+    proxy: {
+      "/api": {
+        target: "http://backend:8080",
+        changeOrigin: true,
+      },
+    },
   },
   base: "/FreelanceHub",
   plugins: [

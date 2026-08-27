@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/FreelanceHub.Api.props" />
+</Project>

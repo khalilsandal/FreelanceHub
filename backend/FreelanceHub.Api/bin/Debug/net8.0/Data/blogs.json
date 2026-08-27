@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "How to Build a Successful Freelance Career",
+    "excerpt": "Learn how to find clients, build your reputation, and create a sustainable freelance career.",
+    "content": "Building a successful freelance career requires more than just having technical skills. You need to build a strong profile, communicate effectively with clients, and consistently deliver high-quality work.",
+    "category": "Freelancing",
+    "author": "Sarah Johnson",
+    "date": "August 10, 2026",
+    "readTime": "6 min read",
+    "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "10 Tips for Writing Better Job Proposals",
+    "excerpt": "A strong proposal can make the difference between getting noticed and getting ignored.",
+    "content": "When applying for freelance jobs, your proposal is often the first impression a client gets from you. A good proposal should be clear, personalized, and focused on the client's needs.",
+    "category": "Freelancing",
+    "author": "Michael Chen",
+    "date": "August 7, 2026",
+    "readTime": "5 min read",
+    "image": "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=900&q=80",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "How to Find the Right Freelancer for Your Project",
+    "excerpt": "Discover the most important things to look for when hiring a freelancer.",
+    "content": "Hiring the right freelancer starts with understanding your project requirements. Define the skills you need, review freelancer profiles carefully, and make sure expectations are clear before starting the project.",
+    "category": "Hiring",
+    "author": "David Williams",
+    "date": "August 4, 2026",
+    "readTime": "4 min read",
+    "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "The Most In-Demand Skills for Freelancers",
+    "excerpt": "Explore the skills that are increasingly valuable in today's freelance market.",
+    "content": "The freelance market continues to evolve. Technical skills, communication, problem solving, and the ability to adapt to new technologies are becoming increasingly valuable.",
+    "category": "Career",
+    "author": "Emma Rodriguez",
+    "date": "July 30, 2026",
+    "readTime": "7 min read",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "How to Set Your Freelance Hourly Rate",
+    "excerpt": "Learn how to calculate a fair hourly rate based on your experience, skills, and market.",
+    "content": "Setting your freelance rate can be challenging. Consider your experience, skills, location, project complexity, and the value you provide to clients when determining your rate.",
+    "category": "Freelancing",
+    "author": "Sarah Johnson",
+    "date": "July 26, 2026",
+    "readTime": "5 min read",
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "Remote Work: How to Stay Productive",
+    "excerpt": "Practical strategies for staying focused and productive while working remotely.",
+    "content": "Working remotely gives you flexibility, but it also requires discipline. Creating a dedicated workspace, setting clear working hours, and taking regular breaks can help you stay productive.",
+    "category": "Remote Work",
+    "author": "Michael Chen",
+    "date": "July 22, 2026",
+    "readTime": "6 min read",
+    "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
+    "featured": false
+  }
+]

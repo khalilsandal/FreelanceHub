@@ -1,10 +1,9 @@
 import blogs from "../data/blogs.json";
+import axios from "axios";
 
 export const getBlogs = async () => {
-  // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 500));
-
-  return blogs;
+  const response = await axios.get("/api/blogs");
+  return response.data;
 };
 
 export const getBlogById = async (id) => {

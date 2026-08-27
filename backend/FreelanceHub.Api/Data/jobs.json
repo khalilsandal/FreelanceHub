@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Build a Modern React Website",
+    "description": "Looking for an experienced React developer to build a modern, responsive website for our business.",
+    "budget": "$800 - $1,500",
+    "type": "Fixed Price",
+    "category": "Web Development",
+    "skills": ["React", "JavaScript", "Tailwind CSS"],
+    "posted": "2 hours ago",
+    "proposals": 8
+  },
+  {
+    "id": 2,
+    "title": "UI/UX Designer for Mobile App",
+    "description": "We need a talented UI/UX designer to create a clean and intuitive design for our mobile application.",
+    "budget": "$500 - $1,000",
+    "type": "Fixed Price",
+    "category": "Design",
+    "skills": ["Figma", "UI/UX", "Mobile Design"],
+    "posted": "5 hours ago",
+    "proposals": 12
+  },
+  {
+    "id": 3,
+    "title": "Node.js Backend Developer",
+    "description": "Looking for a Node.js developer to help build REST APIs and integrate our backend services.",
+    "budget": "$25 - $45 / hour",
+    "type": "Hourly",
+    "category": "Web Development",
+    "skills": ["Node.js", "Express", "MongoDB"],
+    "posted": "1 day ago",
+    "proposals": 15
+  },
+  {
+    "id": 4,
+    "title": "Content Writer for Tech Blog",
+    "description": "We are looking for a skilled writer to create engaging and informative articles for our technology blog.",
+    "budget": "$30 - $60 / article",
+    "type": "Fixed Price",
+    "category": "Writing",
+    "skills": ["Content Writing", "SEO", "Blog Writing"],
+    "posted": "1 day ago",
+    "proposals": 21
+  },
+  {
+    "id": 5,
+    "title": "Full Stack Developer for SaaS Platform",
+    "description": "Build and maintain features for a growing SaaS platform using React and Node.js.",
+    "budget": "$2,000 - $4,000",
+    "type": "Fixed Price",
+    "category": "Web Development",
+    "skills": ["React", "Node.js", "PostgreSQL", "REST API"],
+    "posted": "2 days ago",
+    "proposals": 18
+  },
+  {
+    "id": 6,
+    "title": "Social Media Marketing Manager",
+    "description": "Looking for a creative marketer to manage social media campaigns and grow our online presence.",
+    "budget": "$20 - $35 / hour",
+    "type": "Hourly",
+    "category": "Marketing",
+    "skills": ["Social Media", "Marketing", "Content Strategy"],
+    "posted": "2 days ago",
+    "proposals": 11
+  },
+  {
+    "id": 7,
+    "title": "WordPress Website Development",
+    "description": "Create a professional WordPress website with a custom theme and responsive design.",
+    "budget": "$600 - $1,200",
+    "type": "Fixed Price",
+    "category": "Web Development",
+    "skills": ["WordPress", "PHP", "CSS", "JavaScript"],
+    "posted": "3 days ago",
+    "proposals": 14
+  },
+  {
+    "id": 8,
+    "title": "Logo and Brand Identity Designer",
+    "description": "Design a modern logo and complete visual identity for a new technology startup.",
+    "budget": "$300 - $700",
+    "type": "Fixed Price",
+    "category": "Design",
+    "skills": ["Logo Design", "Branding", "Illustrator", "Photoshop"],
+    "posted": "3 days ago",
+    "proposals": 25
+  },
+  {
+    "id": 9,
+    "title": "Python Data Analysis Project",
+    "description": "Analyze business data and create reports and visualizations using Python.",
+    "budget": "$700 - $1,500",
+    "type": "Fixed Price",
+    "category": "Data Science",
+    "skills": ["Python", "Pandas", "Data Analysis", "Matplotlib"],
+    "posted": "4 days ago",
+    "proposals": 9
+  },
+  {
+    "id": 10,
+    "title": "SEO Specialist for E-commerce Store",
+    "description": "Improve search engine rankings and organic traffic for our growing e-commerce website.",
+    "budget": "$25 - $40 / hour",
+    "type": "Hourly",
+    "category": "Marketing",
+    "skills": ["SEO", "Google Analytics", "Keyword Research"],
+    "posted": "4 days ago",
+    "proposals": 17
+  },
+  {
+    "id": 11,
+    "title": "Mobile App Developer",
+    "description": "Develop a cross-platform mobile application for iOS and Android.",
+    "budget": "$1,500 - $3,000",
+    "type": "Fixed Price",
+    "category": "Mobile Development",
+    "skills": ["React Native", "JavaScript", "Firebase"],
+    "posted": "5 days ago",
+    "proposals": 19
+  },
+  {
+    "id": 12,
+    "title": "Virtual Assistant",
+    "description": "Looking for a reliable virtual assistant to help with administrative tasks and customer communication.",
+    "budget": "$15 - $25 / hour",
+    "type": "Hourly",
+    "category": "Business",
+    "skills": ["Virtual Assistance", "Communication", "Data Entry"],
+    "posted": "5 days ago",
+    "proposals": 13
+  }
+]

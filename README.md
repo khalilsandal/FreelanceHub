@@ -18,5 +18,12 @@ It is built as a learning project to practice **React 18, React Router, Hooks, A
 
 Visit here: **https://khalilsandal.github.io/FreelanceHub/**
 
+to test client account:
+ "email": "john@example.com"
+ "password": "123123"
+
+ to test freelancer account:
+ "email": "sarah@example.com"
+ "password": "123123"
 
 > 🚧 This project is currently under development.

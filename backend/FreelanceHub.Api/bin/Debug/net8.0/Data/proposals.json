@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "jobId": 1,
+    "freelancerId": 1,
+    "jobTitle": "Build a Modern React Website",
+    "coverLetter": "I have extensive experience building React applications...",
+    "bidAmount": 1200,
+    "estimatedDuration": "3 weeks",
+    "status": "pending",
+    "createdAt": "2026-08-10T10:30:00Z"
+  },
+  {
+    "id": 2,
+    "jobId": 2,
+    "freelancerId": 1,
+    "jobTitle": "UI/UX Designer for Mobile App",
+    "coverLetter": "I would love to help design your mobile application...",
+    "bidAmount": 800,
+    "estimatedDuration": "2 weeks",
+    "status": "accepted",
+    "createdAt": "2026-08-08T14:20:00Z"
+  },
+  {
+    "id": 3,
+    "jobId": 3,
+    "freelancerId": 2,
+    "jobTitle": "Node.js Backend Developer",
+    "coverLetter": "ddddddddddd",
+    "bidAmount": 7,
+    "estimatedDuration": "1 week",
+    "status": "pending",
+    "createdAt": "2026-08-31T15:30:29.7460704Z"
+  }
+]

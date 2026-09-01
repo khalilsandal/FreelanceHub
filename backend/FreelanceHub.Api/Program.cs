@@ -7,6 +7,9 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<IFreelancerService, FreelancerService>();
 builder.Services.AddScoped<IJobService, JobService>();
+builder.Services.AddScoped<IProposalsService, ProposalsService>();
+
+
 
 
 // Swagger

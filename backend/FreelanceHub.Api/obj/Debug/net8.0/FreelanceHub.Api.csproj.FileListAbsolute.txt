@@ -70,3 +70,6 @@ C:/Users/ksandal/src/FreelanceHub/backend/FreelanceHub.Api/bin/Debug/net8.0/Data
 /app/FreelanceHub.Api/bin/Debug/net8.0/Data/freelancers.json
 C:/Users/ksandal/src/FreelanceHub/backend/FreelanceHub.Api/bin/Debug/net8.0/Data/freelancers.json
 /app/FreelanceHub.Api/bin/Debug/net8.0/Data/jobs.json
+/app/FreelanceHub.Api/bin/Debug/net8.0/Data/proposals.json
+C:/Users/ksandal/src/FreelanceHub/backend/FreelanceHub.Api/bin/Debug/net8.0/Data/jobs.json
+C:/Users/ksandal/src/FreelanceHub/backend/FreelanceHub.Api/bin/Debug/net8.0/Data/proposals.json

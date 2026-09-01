@@ -7,8 +7,10 @@ import {
 
 import Loading from "../../components/common/Loading.jsx";
 import ErrorState from "../../components/common/ErrorMessage/ErrorState";
+import { useSelector } from "react-redux";
 
 const MyProposals = () => {
+  const currentUser = useSelector((state) => state.auth.user);
   const [proposals, setProposals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,7 +19,7 @@ const MyProposals = () => {
 
   // Temporary logged-in freelancer
   // Later this should come from your authentication context
-  const freelancerId = 1;
+  const freelancerId = currentUser.id;
 
   const loadProposals = async () => {
     try {

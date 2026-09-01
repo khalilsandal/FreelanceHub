@@ -38,6 +38,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Route protection
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import RoleRoute from "./RoleRoute.jsx";
 
 const AppRoutes = () => {
   return (
@@ -68,30 +69,31 @@ const AppRoutes = () => {
 
 
           {/* Jobs */}
+          
           <Route path="jobs">
-            <Route index element={<Jobs />} />
-            <Route path=":jobId" element={<JobDetails />} />
-            <Route path=":jobId/proposal" element={<SubmitProposal />} />
-            <Route path="saved-jobs" element={<SavedJobs />} />
+            <Route index element={<RoleRoute allowedRole="freelancer"><Jobs /></RoleRoute>} />
+            <Route path=":jobId" element={<RoleRoute allowedRole="freelancer"><JobDetails /></RoleRoute>} />
+            <Route path=":jobId/proposal" element={<RoleRoute allowedRole="freelancer"><SubmitProposal /></RoleRoute>} />
+            <Route path="saved-jobs" element={<RoleRoute allowedRole="freelancer"><SavedJobs /></RoleRoute>} />
             <Route path="messages" element={<Messages />} />
           </Route>
 
 
           {/* Freelancers */}
           <Route path="freelancers">
-            <Route index element={<Freelancers />} />
+            <Route index element={<RoleRoute allowedRole="client"><Freelancers /></RoleRoute>} />
             <Route
               path=":freelancerId"
-              element={<FreelancerProfile />}
+              element={<RoleRoute allowedRole="client"><FreelancerProfile /></RoleRoute>}
             />
           </Route>
 
 
           {/* My Jobs */}
           <Route path="my-jobs">
-            <Route index element={<MyJobs />} />
-            <Route path="new" element={<CreateJob />} />
-            <Route path=":jobId" element={<MyJobDetails />} />
+            <Route index element={<RoleRoute allowedRole="client"><MyJobs /></RoleRoute>} />
+            <Route path="new" element={<RoleRoute allowedRole="client"><CreateJob /></RoleRoute>} />
+            <Route path=":jobId" element={<RoleRoute allowedRole="client"><MyJobDetails /></RoleRoute>} />
             
             
           </Route>
@@ -99,10 +101,10 @@ const AppRoutes = () => {
 
           {/* My Proposals */}
           <Route path="my-proposals">
-            <Route index element={<MyProposals />} />
+            <Route index element={<RoleRoute allowedRole="freelancer"><MyProposals /></RoleRoute>} />
             <Route
               path=":proposalId"
-              element={<ProposalDetails />}
+              element={<RoleRoute allowedRole="freelancer"><ProposalDetails /></RoleRoute>}
             />
           </Route>
 

@@ -1,86 +1,87 @@
-import { useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 import { submitProposal } from "../../services/proposalService";
-import Loading from "../../components/common/Loading.jsx";
-import ErrorState from "../../components/common/ErrorMessage/ErrorState";
+import { getJobById } from "../../services/jobService";
+
+import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const proposalSchema = z.object({
+  coverLetter: z
+    .string()
+    .min(5, "Cover Letter must be at least 5 characters"),
+
+  bidAmount: z
+    .number({
+      invalid_type_error: "Bid Amount must be a number",
+    })
+    .positive("Bid Amount must be greater than 0"),
+
+  estimatedDuration: z
+    .string()
+    .min(1, "Please enter Estimated Duration"),
+});
 
 const SubmitProposal = () => {
   const { jobId } = useParams();
   const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.auth.user);
 
-  const [coverLetter, setCoverLetter] = useState("");
-  const [bidAmount, setBidAmount] = useState("");
-  const [estimatedDuration, setEstimatedDuration] = useState("");
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(proposalSchema),
+
+    defaultValues: {
+      coverLetter: "",
+      bidAmount: "",
+      estimatedDuration: "",
+    },
+  });
+
+  
 
   // Temporary logged-in freelancer
-  // Later this can come from your authentication/user context
-  const freelancerId = 1;
+  // Later this should come from authentication/context
+  const freelancerId = currentUser.id;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // Watch values for the summary
+  const bidAmount = watch("bidAmount");
+  const estimatedDuration = watch("estimatedDuration");
 
-    setError("");
-    setSuccess("");
-
-    // Validation
-    if (!coverLetter.trim()) {
-      setError("Please write a cover letter.");
-      return;
-    }
-
-    if (!bidAmount || Number(bidAmount) <= 0) {
-      setError("Please enter a valid bid amount.");
-      return;
-    }
-
-    if (!estimatedDuration) {
-      setError("Please select an estimated duration.");
-      return;
-    }
-
+  const onSubmit = async (data) => {
     try {
-      setLoading(true);
-
-      const proposal = await submitProposal({
+      const jobTitleValue = await getJobById(jobId);
+      const proposal = {
+        ...data,
         jobId: Number(jobId),
         freelancerId,
-        coverLetter: coverLetter.trim(),
-        bidAmount: Number(bidAmount),
-        estimatedDuration,
-      });
+        jobTitle: jobTitleValue.title
+      };
 
-      console.log("Proposal submitted:", proposal);
+      console.log("proposal data:", proposal);
 
-      setSuccess("Your proposal has been submitted successfully!");
+      await submitProposal(proposal);
 
-      // Clear form
-      setCoverLetter("");
-      setBidAmount("");
-      setEstimatedDuration("");
+      console.log("proposal created successfully!");
 
-      // Redirect after a short delay
-      setTimeout(() => {
-        navigate("/app/my-proposals");
-      }, 1200);
-    } catch (err) {
-      setError("Failed to submit your proposal. Please try again.");
-    } finally {
-      setLoading(false);
+      reset();
+
+      // Go back to the job after successful submission
+      navigate(`/app/jobs/${jobId}`);
+    } catch (error) {
+      console.error("Failed to submit proposal:", error);
     }
   };
-
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <ErrorState title="Something went wrong" message="We could not get load page" onRetry = {true} />;
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 px-6 py-10">
@@ -107,23 +108,9 @@ const SubmitProposal = () => {
 
         {/* Form */}
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           className="rounded-xl bg-white p-8 shadow-sm ring-1 ring-gray-200"
         >
-
-          {/* Error */}
-          {error && (
-            <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-              {error}
-            </div>
-          )}
-
-          {/* Success */}
-          {success && (
-            <div className="mb-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
-              {success}
-            </div>
-          )}
 
           {/* Cover Letter */}
           <div>
@@ -140,16 +127,21 @@ const SubmitProposal = () => {
 
             <textarea
               id="coverLetter"
-              value={coverLetter}
-              onChange={(e) => setCoverLetter(e.target.value)}
+              {...register("coverLetter")}
               rows={8}
               placeholder="Tell the client about your experience, approach, and why you are the right person for this project..."
-              className="mt-3 w-full resize-none rounded-lg border border-gray-300 px-4 py-3 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              className={`mt-3 w-full resize-none rounded-lg border px-4 py-3 text-gray-900 outline-none transition placeholder:text-gray-400 focus:ring-2 ${
+                errors.coverLetter
+                  ? "border-red-500 focus:ring-red-100"
+                  : "border-gray-300 focus:border-blue-500 focus:ring-blue-100"
+              }`}
             />
 
-            <div className="mt-1 text-right text-xs text-gray-400">
-              {coverLetter.length} characters
-            </div>
+            {errors.coverLetter && (
+              <p className="mt-1 text-sm text-red-600">
+                {errors.coverLetter.message}
+              </p>
+            )}
           </div>
 
           {/* Bid + Duration */}
@@ -177,12 +169,23 @@ const SubmitProposal = () => {
                   id="bidAmount"
                   type="number"
                   min="1"
-                  value={bidAmount}
-                  onChange={(e) => setBidAmount(e.target.value)}
+                  {...register("bidAmount", {
+                    valueAsNumber: true,
+                  })}
                   placeholder="1200"
-                  className="w-full rounded-lg border border-gray-300 py-3 pl-8 pr-4 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  className={`w-full rounded-lg border py-3 pl-8 pr-4 text-gray-900 outline-none transition placeholder:text-gray-400 focus:ring-2 ${
+                    errors.bidAmount
+                      ? "border-red-500 focus:ring-red-100"
+                      : "border-gray-300 focus:border-blue-500 focus:ring-blue-100"
+                  }`}
                 />
               </div>
+
+              {errors.bidAmount && (
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.bidAmount.message}
+                </p>
+              )}
             </div>
 
             {/* Duration */}
@@ -200,42 +203,28 @@ const SubmitProposal = () => {
 
               <select
                 id="estimatedDuration"
-                value={estimatedDuration}
-                onChange={(e) => setEstimatedDuration(e.target.value)}
-                className="mt-3 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-700 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                {...register("estimatedDuration")}
+                className={`mt-3 w-full rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition focus:ring-2 ${
+                  errors.estimatedDuration
+                    ? "border-red-500 focus:ring-red-100"
+                    : "border-gray-300 focus:border-blue-500 focus:ring-blue-100"
+                }`}
               >
-                <option value="">
-                  Select duration
-                </option>
-
-                <option value="Less than 1 week">
-                  Less than 1 week
-                </option>
-
-                <option value="1 week">
-                  1 week
-                </option>
-
-                <option value="2 weeks">
-                  2 weeks
-                </option>
-
-                <option value="3 weeks">
-                  3 weeks
-                </option>
-
-                <option value="1 month">
-                  1 month
-                </option>
-
-                <option value="1 - 3 months">
-                  1 - 3 months
-                </option>
-
-                <option value="3+ months">
-                  3+ months
-                </option>
+                <option value="">Select duration</option>
+                <option value="Less than 1 week">Less than 1 week</option>
+                <option value="1 week">1 week</option>
+                <option value="2 weeks">2 weeks</option>
+                <option value="3 weeks">3 weeks</option>
+                <option value="1 month">1 month</option>
+                <option value="1 - 3 months">1 - 3 months</option>
+                <option value="3+ months">3+ months</option>
               </select>
+
+              {errors.estimatedDuration && (
+                <p className="mt-1 text-sm text-red-600">
+                  {errors.estimatedDuration.message}
+                </p>
+              )}
             </div>
           </div>
 
@@ -295,10 +284,12 @@ const SubmitProposal = () => {
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={isSubmitting}
               className="rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {loading ? "Submitting..." : "Submit Proposal"}
+              {isSubmitting
+                ? "Submitting..."
+                : "Submit Proposal"}
             </button>
 
           </div>
